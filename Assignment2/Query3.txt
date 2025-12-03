@@ -1,0 +1,17 @@
+--3.	Write a SQL query to update the duration of the movie with show_id 12345 in the Movies table to 120 minutes. 
+select * from shows;
+select * from show_type;
+select * from titles;
+insert into Shows(show_id,title_id,type_id,country,date_added,release_year,rating,description)
+values ('12345',18,1,null,null,null,null,null);
+insert into titles(title,duration)
+values ('NA','NA');
+select * from titles;
+select * from shows;
+
+update titles
+set duration = '120 min'
+where title_id = (
+    select title_id
+    from Shows
+    where show_id = '12345');

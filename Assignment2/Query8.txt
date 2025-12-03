@@ -1,0 +1,22 @@
+--8.Write a SQL queries to List of directors and the number of movies/TV shows they have directed. 
+select * from directors;
+select * from titles;
+select * from shows;
+insert into Shows(show_id,title_id,type_id,country,date_added,release_year,rating,description)
+values ('s6447',14,1,'United Kingdom and United States','2020-01-01','2005','PG','The eccentric Willy Wonka opens the doors of his candy factory to five lucky kids who learn the secrets behind his amazing confections.');
+
+insert into titles(title,duration)
+values ('Charlie and the Chocolate Factory','115 min');
+
+insert into directors(director_name,title_id)
+values ('Tim Burton',14);
+
+select * from Shows;
+select * from titles;
+select * from directors;
+select * from show_type;
+
+SELECT d.director_name, COUNT(d.title_id) AS number_of_shows
+FROM directors d
+JOIN titles t ON d.title_id = t.title_id
+GROUP BY d.director_name;

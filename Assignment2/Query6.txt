@@ -1,0 +1,8 @@
+--6.	Write a SQL queries to extract Total number of TV shows
+
+select * from shows join show_type on shows.type_id=show_type.type_id;
+
+SELECT COUNT(*) AS total_tv_shows
+FROM shows
+JOIN show_type ON shows.type_id = show_type.type_id
+WHERE show_type.type_name = 'TV Show';

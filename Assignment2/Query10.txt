@@ -1,0 +1,17 @@
+--10. Write a SQL queries to get the List of genres with the highest number of titles. 
+
+select * from Shows;
+select * from titles;
+select * from genres;
+
+insert into genres(genre_name,title_id)
+values ('Documentaries',15),('Documentaries',16);
+
+insert into titles(title,duration)
+values ('Nobody Speak: Trials of the Free Press','96 min'),
+('What the Health','92 min');
+
+select g.genre_name, COUNT(t.title_id) AS highest_titles
+FROM genres g inner join titles t ON g.title_id = t.title_id
+GROUP BY g.genre_name
+ORDER BY highest_titles desc;

@@ -1,0 +1,37 @@
+--4.	Write a SQL query to delete all records from the Movies table where the release_year is before 2000. 
+
+Delete from Shows
+where release_year < 2000
+and show_id in (
+    select show_id
+    from show_type st
+    where st.type_name = 'Movie'
+);
+
+select * from Shows;
+select * from titles;
+insert into Shows(show_id,title_id,type_id,country,date_added,release_year,rating,description)
+values('s162',5,1,'United States','2021-09-01',1996,'PG-13','As flying saucers head for Earth, the president of the United States prepares to welcome alien visitors but soon learns theyre not coming in peace.');
+
+select * from Shows;
+
+insert into show_type(type_id,type_name)
+values(1,'Movie'),
+(2,'TV Show');
+
+insert into titles(title,duration)
+values ('Mars Attacks!','106 min');
+delete from titles where title_id=6;
+
+
+insert into directors(director_name,title_id)
+values ('Tim Burton',5);
+
+insert into actors(actor_name,title_id)
+values ('Jack Nicholson',5);
+
+insert into genres(genre_name,title_id)
+values ('Comedies',5),
+('Cult Movies',5),
+('Sci-Fi & Fantasy',5);
+

@@ -1,0 +1,24 @@
+--Write a SQL query to add a new record to the Movies table for a movie titled
+--"The Great Adventure" directed by "John Smith" with a release year of 2023 
+--and a duration of 150 minutes. 
+ insert into titles (title, duration)
+    values ('The Great Adventure', '150 min');
+	select * from titles;
+insert into directors (director_name, title_id)
+    values ('John Smith', 1);
+	insert into show_type (type_name)
+    values ( 'Movie');
+	insert into genres ( genre_name, title_id)
+    values ('Adventure', 1);
+	insert into Shows (show_id, title_id,country, date_added, release_year, rating, description)
+    values ('s8810', 1, null, null, '2023', null, null);
+
+
+
+select  t.title, d.director_name, s.release_year, t.duration from Shows s
+join titles t on s.title_id = t.title_id
+join directors d ON s.title_id = d.title_id
+where t.title = 'The Great Adventure'
+    and d.director_name = 'John Smith'
+    and s.release_year = 2023
+    and t.duration = '150 min';

@@ -1,0 +1,5 @@
+select s.show_id,t.title,st.type_name,t.duration,s.country,s.date_added,s.release_year,s.rating,s.description
+from  shows s
+inner join titles t on s.title_id = t.title_id
+inner join show_type st on s.type_id = st.type_id
+where  s.release_year = 2020 and st.type_name = 'Movie';

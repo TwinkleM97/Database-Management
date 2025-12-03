@@ -1,0 +1,33 @@
+--5.Create a View named LongestMovies that displays the top 10 longest movies from the Titles table, including the title and duration in minutes. 
+
+select * from LongestMovies;
+--5.Create a View named LongestMovies that displays the top 10 longest movies from the Titles table, including the title and duration in minutes.
+
+select * from shows;
+select * from titles;
+
+
+SELECT TOP 10
+  title, 
+  CAST(SUBSTRING(duration, 1, LEN(duration) - 4) AS INT) AS duration_in_minutes
+FROM 
+    titles
+WHERE 
+    duration LIKE '% min' 
+ORDER BY 
+    duration_in_minutes DESC;
+
+insert into Shows(show_id,title_id,type_id,country,date_added,release_year,rating,description)
+values('s8765',13,1,'United States','2020-01-01',1994,'PG-13','Legendary lawman Wyatt Earp is continually at odds with a gang of renegade cowboys, culminating in a fiery showdown with the outlaws at the OK Corral.');
+
+insert into titles(title,duration)
+values 
+('Hum Aapke Hain Koun','193 min'),
+('English Babu Desi Mem','163 min'),
+('Barsaat','166 min'),
+('Pardes','187 min'),
+('Raja Hindustani','177 min'),
+('Trimurti','173 min'),
+('Wyatt Earp','191 min');
+select * from titles;
+

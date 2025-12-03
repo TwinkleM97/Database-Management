@@ -1,0 +1,5 @@
+--7.Write a SQL queries to find Number of movies released in a specific year.
+
+select COUNT(*) AS num_of_movies from shows
+ join show_type ON shows.type_id = show_type.type_id
+where show_type.type_name = 'Movie' AND shows.release_year = 2020;

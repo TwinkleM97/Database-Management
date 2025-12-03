@@ -1,0 +1,10 @@
+--9.	Write a SQL queries to get the Average duration of movies. 
+select * from Shows;
+select * from titles;
+select * from show_type;
+
+SELECT AVG(CONVERT(INT, LEFT(t.duration, PATINDEX('% [^0-9]%', t.duration ) - 1))) AS average_duration
+FROM shows s
+JOIN show_type st ON s.type_id = st.type_id
+JOIN titles t ON s.title_id = t.title_id
+WHERE st.type_name = 'Movie' ;
